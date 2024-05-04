@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/kafkalab
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+  application:
+    name: consumer
+  kafka:
+    auto-offset-reset: latest
+    bootstrap-servers: localhost:9092
+    group-id: consumer-group
+    max.poll.interval.ms: 90000
+    topic:
+      name: test-topic
+server:
+  port: 9001
+
+logging:
+  level:
+    org.springframework.kafka: DEBUG
